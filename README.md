@@ -12,3 +12,20 @@ How it works
 - It will then proceed to extract every category that these restaurants are apart of. 
 - You then choose which categories you'd want!
 - Finally, you press "Choose Me" and it shall give you a random restaurant to order lunch from!
+
+
+Technologies Used
+---
+- Express.js
+- HTML/CSS (minimal.)
+- Yelp API
+- Glitch.me as a host.
+
+
+Changelog
+---
+
+v1.1b - Image now opens a new tab to the yelp page of the chosen restaurant. 
+v1.1a - Added a remove all and an add all button! 
+v1.1 - Tried to tidy up user interface a bit. Will make it look nicer and more mobile friendly in future.
+v1.0 - Initial Release
