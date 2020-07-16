@@ -1,6 +1,6 @@
 ## ChooseMyLunch
 
-mylunch.glitch.me
+[Link to try!](mylunch.glitch.me)
 
 This is a project made in my free time using express.js on glitch.me. 
 
