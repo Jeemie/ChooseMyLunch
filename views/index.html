@@ -32,90 +32,93 @@
     </header>
 
     <main>
-      <div id="background">
-        <div id="foreground">
-          <!--ADDRESS -->
-          <div id="addressSearch">
-            <h2>Oh hi,</h2>
-            <p>Let me pick out something for you for lunch :)</p>
-            <form action="">
+      <!--ADDRESS -->
+      <center>
+        <div id="addressSearch">
+          <h2>Oh hi,</h2>
+          <p>Let me pick out something for you for lunch :)</p>
+          <form action="">
+            <label>
+              Address
+              <input
+                id="address"
+                name="address"
+                type="text"
+                maxlength="100"
+                placeholder="type your address here"
+              />
               <label>
-                Address
-                <input
-                  id="address"
-                  name="address"
-                  type="text"
-                  maxlength="100"
-                  placeholder="type your address here"
-                />
-                <label>
-                  Radius (in miles)
-                  <select id="radius" name="dropdown">
-                    <option value="5" selected>5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="25">25</option>
-                  </select>
-                </label>
+                Radius (in miles)
+                <select id="radius" name="dropdown">
+                  <option value="5" selected>5</option>
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                  <option value="20">20</option>
+                  <option value="25">25</option>
+                </select>
+              </label>
+            </label>
+          </form>
+          <button id="submit-location" onclick="search()">Search</button>
+        </div>
+        <!--ADDRESS -->
+
+        <!--FILTER -->
+        <div id="filter" style="display:none">
+          <h2>Oh!</h2>
+          <p>Just choose what categories you'd want!</p>
+          <p>
+            When you're done, press Choose for Me!
+          </p>
+          <p>To remove an option: Select in Chosen then Remove</p>
+          <center>
+            <form>
+              <select id="list1" name="dropdown"> </select>
+            </form>
+            <center>
+              <button id="addAll" onclick="addAll()">
+                Add All
+              </button>
+              <button id="add" onclick="add()">Add</button>
+              <button id="remove" onclick="remove()">Remove</button>
+              <button id="removeAll" onclick="removeAll()">RemoveAll</button>
+              <button id="choose" onclick="choose()">Choose for Me!</button>
+            </center>
+            <form>
+              <label>
+                Chosen
+                <select id="list2" name="dropdown"> </select>
               </label>
             </form>
-            <button id="submit-location" onclick="search()">Search</button>
-          </div>
-          <!--ADDRESS -->
-
-          <!--FILTER -->
-          <div id="filter" style="display:none">
-            <h2>Oh!</h2>
-            <p>Just choose what categories you'd want!</p>
-            <p>
-              When you're done, press Choose for Me!
-            </p>
-            <p> To remove an option: Select in Chosen then Remove</p>
-            <center>
-              <form>
-                <select id="list1" name="dropdown"> </select>
-              </form>
-              <center>
-                <button id="addAll" onclick="addAll()">
-                  Add All
-                </button>
-                <button id="add" onclick="add()">Add</button>
-                <button id="remove" onclick="remove()">Remove</button>
-                <button id="removeAll" onclick="removeAll()">RemoveAll</button>
-                <button id="choose" onclick="choose()">Choose for Me!</button>
-              </center>
-              <form>
-                <label> Chosen <select id="list2" name="dropdown"> </select> </label>
-              </form>
-            </center>
-          </div>
-
-          <!--ENDFILTER -->
-
-          <!--FINAL VIEW-->
-          <div id="final" style="display:none">
-            <center>
-              <h1>
-                This is what I chose for you!
-              </h1>
-              <a id= "yelpLink" href="URL"><img id="pic" alt="Yikes." width="500" height="600" /></a>
-              <p id="name">
-                Name
-              </p>
-              <p id="restAddress">
-                Address
-              </p>
-            </center>
-          </div>
-          <!--END FINAL VIEW-->
+          </center>
         </div>
-      </div>
-    </main>
+      </center>
+      <!--ENDFILTER -->
 
-    <!-- include the Glitch button to show what the webpage is about and
-          to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:2em;right:20px;"></div>
-    <script src="https://button.glitch.me/button.js" defer></script>
+      <!--FINAL VIEW-->
+      <div id="final" style="display:none">
+        <center>
+          <h1>
+            This is what I chose for you!
+          </h1>
+          <a id="yelpLink" href="URL" target="_blank"
+            ><img id="pic" alt="Yikes."
+          /></a>
+          <p id="name">
+            Name
+          </p>
+          <p id="restAddress">
+            Address
+          </p>
+          <a
+            id="googleLink"
+            href="https://www.google.com/search?q="
+            target="_blank"
+            >Click here to see this on Google!</a
+          >
+        </center>
+      </div>
+      <!--END FINAL VIEW-->
+    </main>
   </body>
 </html>
