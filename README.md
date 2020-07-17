@@ -1,6 +1,6 @@
 ## ChooseMyLunch
 
-[Link to try!](https://www.mylunch.glitch.me "Choose my lunch!")
+[Link to try!](http://www.mylunch.glitch.me "Choose my lunch!")
 
 This is a project made in my free time using express.js on glitch.me. 
 
