@@ -25,6 +25,7 @@ Technologies Used
 Changelog
 ---
 
+- v1.1c - Added google link at the bottom in case you don't like Yelp. 
 - v1.1b - Image now opens a new tab to the yelp page of the chosen restaurant. 
 - v1.1a - Added a remove all and an add all button! 
 - v1.1 - Tried to tidy up user interface a bit. Will make it look nicer and more mobile friendly in future.
