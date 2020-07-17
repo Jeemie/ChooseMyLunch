@@ -25,6 +25,7 @@ Technologies Used
 Changelog
 ---
 
+- v1.1d - Added restart button in order to restart. 
 - v1.1c - Added google link at the bottom in case you don't like Yelp. 
 - v1.1b - Image now opens a new tab to the yelp page of the chosen restaurant. 
 - v1.1a - Added a remove all and an add all button! 
