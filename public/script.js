@@ -113,6 +113,14 @@ function choose() {
     var random = Math.floor(Math.random() * Math.floor(eligible.length));
 
     finalRest = eligible[random];
+    
+    
+    var address = finalRest.location.address1 +
+    " " +
+    finalRest.location.city +
+    " " +
+    finalRest.location.zip_code;
+    
 
     document.getElementById("filter").style.display = "none";
     document.getElementById("final").style.display = "block";
@@ -120,14 +128,9 @@ function choose() {
     document.getElementById("pic").src = finalRest.image_url;
     document.getElementById("yelpLink").href = finalRest.url;
     document.getElementById("name").innerHTML = finalRest.name;
-    document.getElementById("restAddress").innerHTML =
-      finalRest.location.address1 +
-      " " +
-      finalRest.location.city +
-      " " +
-      finalRest.location.zip_code;
+    document.getElementById("restAddress").innerHTML = address;
 
-
+    document.getElementById("googleLink").href += (finalRest.name + " " + address);
   } else {
     alert("You didn't add anything!");
   }
