@@ -37,7 +37,10 @@
         <div id="addressSearch">
           <h2>Oh hi,</h2>
           <p>Let me pick out something for you for lunch :)</p>
-          <form action="">
+          <p>
+            Note: Only restaurants that are currently open via yelp will appear! 
+          </p>
+          <form action="" onsubmit="search(event, this); return false;">
             <label>
               Address
               <input
@@ -59,7 +62,7 @@
               </label>
             </label>
           </form>
-          <button id="submit-location" onclick="search()">Search</button>
+          <button id="submit-location" onclick="search(event, this)">Search</button>
         </div>
         <!--ADDRESS -->
 
@@ -73,23 +76,33 @@
           <p>To remove an option: Select in Chosen then Remove</p>
           <center>
             <form>
+              <label>Categories</label>
+              <t>All available categories are here.</t>
               <select id="list1" name="dropdown"> </select>
             </form>
-            <center>
+              <button id="add" onclick="add()">Add Selected</button>
               <button id="addAll" onclick="addAll()">
                 Add All
               </button>
-              <button id="add" onclick="add()">Add</button>
-              <button id="remove" onclick="remove()">Remove</button>
-              <button id="removeAll" onclick="removeAll()">RemoveAll</button>
-              <button id="choose" onclick="choose()">Choose for Me!</button>
-            </center>
             <form>
-              <label>
-                Chosen
-                <select id="list2" name="dropdown"> </select>
-              </label>
+              <label>Chosen</label>
+              <t>We will choose from this list.</t>
+                <select id="list2" name="dropdown"> </select>          
             </form>
+              <button id="remove" onclick="remove()">Remove Selected</button>
+              <button id="removeAll" onclick="removeAll()">RemoveAll</button>
+            <form>              
+              <label>Max Price Range</label>
+                <select id="price" name="dropdown">
+                  <option value="$" selected>$</option>
+                  <option value="$$">$$</option>
+                  <option value="$$$">$$$</option>
+                  <option value="$$$$">$$$$</option>
+                </select>
+              </form>
+            <center>
+              <button id="choose" onclick="choose()">Choose for Me!</button>
+            </center>       
           </center>
         </div>
       </center>
@@ -107,6 +120,12 @@
           <p id="name">
             Name
           </p>
+          <p id="rating">
+           Rating
+          </p>
+          <p id="pricing">
+            Price
+          </p>
           <p id="restAddress">
             Address
           </p>
@@ -116,8 +135,15 @@
             target="_blank"
             >Click here to see this on Google!</a
           >
+          <br>
+          <button id="repeat" onclick="choose()">Repeat Search</button>
+          <button id="reselect" onclick="showFilter()">Reselect Options</button>
         </center>
       </div>
+      <center>
+        <br><br>
+        <button id="restart" onclick="window.location.href = '/'">Start Over</button>
+      </center>
       <!--END FINAL VIEW-->
     </main>
   </body>
