@@ -1,13 +1,14 @@
 // client-side js, loaded by index.html
 // run by the browser each time the page is loaded
 // define variables that reference elements on our page
-const dreamsList = document.getElementById("dreams");
 
 let allFood = new Set();
 var businesses;
 var finalRest;
 
-async function search() {
+async function search(event, form) {
+  
+  event.preventDefault();
   if (document.getElementById("address").value.length > 10) {
     document.getElementById("addressSearch").style.display = "none";
     document.getElementById("filter").style.display = "block";
@@ -48,7 +49,7 @@ async function search() {
     var sel = document.getElementById("list1");
     for (let item of allFood) {
       let entry = JSON.parse(item);
-      console.log(entry.alias);
+      //console.log(entry.alias);
       let newOption = new Option(entry.title, entry.alias);
       document.getElementById("list1").add(newOption, undefined);
     }
@@ -92,6 +93,8 @@ function choose() {
   var chosen = new Set();
   var sel = document.getElementById("list2");
   var i;
+  var priceList = document.getElementById("price");
+  var price = priceList.options[priceList.selectedIndex].value;
 
   if (sel.options.length > 0) {
     for (i = 0; i < sel.options.length; i++) {
@@ -102,35 +105,40 @@ function choose() {
     var eligible = new Array();
 
     for (let business of businesses) {
+
       for (let cat of business.categories) {
-        if (chosen.has(cat.alias)) {
+        if (chosen.has(cat.alias) && (business.price.localeCompare(price) <= 0)) {
           eligible.push(business);
           break;
-        }
+          }  
       }
     }
     
     var random = Math.floor(Math.random() * Math.floor(eligible.length));
 
-    finalRest = eligible[random];
-    
-    
-    var address = finalRest.location.address1 +
-    " " +
-    finalRest.location.city +
-    " " +
-    finalRest.location.zip_code;
-    
+    if(eligible.length <= 0){
+      alert("There is nothing within that price range for the categories you've chosen!");
+    }else {
+      finalRest = eligible[random];
 
-    document.getElementById("filter").style.display = "none";
-    document.getElementById("final").style.display = "block";
 
-    document.getElementById("pic").src = finalRest.image_url;
-    document.getElementById("yelpLink").href = finalRest.url;
-    document.getElementById("name").innerHTML = finalRest.name;
-    document.getElementById("restAddress").innerHTML = address;
+      var address = finalRest.location.address1 +
+      " " +
+      finalRest.location.city +
+      " " +
+      finalRest.location.zip_code;
 
-    document.getElementById("googleLink").href += (finalRest.name + " " + address);
+      showFinal();
+      
+      document.getElementById("pic").src = finalRest.image_url;
+      document.getElementById("yelpLink").href = finalRest.url;
+      document.getElementById("name").innerHTML = finalRest.name;
+      document.getElementById("rating").innerHTML = "Rating : " + finalRest.rating;
+      document.getElementById("pricing").innerHTML = "Price Tag : " + finalRest.price;
+      document.getElementById("restAddress").innerHTML = address;
+      var res = finalRest.name.replace("&", "and");
+      document.getElementById("googleLink").href ="https://www.google.com/search?q=" + res + " " + address;
+    }
   } else {
     alert("You didn't add anything!");
   }
@@ -156,4 +164,14 @@ function sortSelect(elem) {
   }
   elem.selectedIndex = newSelectedIndex; // Set new selected index after sorting
   return;
+}
+
+function showFinal(){
+      document.getElementById("filter").style.display = "none";
+      document.getElementById("final").style.display = "block";
+}
+
+function showFilter(){
+      document.getElementById("filter").style.display = "block";
+      document.getElementById("final").style.display = "none";
 }
